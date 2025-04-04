@@ -1,0 +1,22 @@
+{
+  "name": "library-assistant",
+  "version": "1.0.0",
+  "description": "Умный библиотечный ассистент с использованием Pinecone и OpenAI",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@pinecone-database/pinecone": "^1.1.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "openai": "^4.28.0",
+    "sequelize-auto": "^0.8.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
