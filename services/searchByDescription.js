@@ -2,12 +2,12 @@ const sequelize = require("../db");
 
 async function searchByDescription(description) {
   try {
-    let query = `
+    const query = `
       SELECT DISTINCT b."TITLE", b."AUTHOR", b."BR_ID"
       FROM "_BR" b
       WHERE b."TITLE" IS NOT NULL 
         AND b."TITLE" <> '' 
-        AND b."TITLE" <> ''''  -- Исключаем строки с одинарной кавычкой
+        AND b."TITLE" <> ''''
         AND EXISTS (
           SELECT 1 FROM "_BR_RECORD" r
           WHERE r."BR_ID" = b."BR_ID"
@@ -16,7 +16,9 @@ async function searchByDescription(description) {
       LIMIT 10;
     `;
 
-    let replacements = { description: `%${description}%` };
+    const replacements = { description: `%${description}%` };
+
+    console.log('Поиск по описанию:', description);
 
     return await sequelize.query(query, {
       replacements,
